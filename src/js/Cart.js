@@ -25,6 +25,7 @@ export default function Cart({
   const [address, selectAddress] = useState(null);
   const [cardSelected, selectCard] = useState(null);
 
+  // If No prooucts can be seen
   if (productCount === 0) {
     return (
       <div className="continue">

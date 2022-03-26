@@ -11,7 +11,7 @@ export default function ShowFinalPriceInCart({
   selectCard,
   address
 }) {
-  useEffect(() => setAction("Final Cart Pricet"), []);
+  useEffect(() => setAction("Final Cart Price"), []);
   const totalCart = Utilities.roundOff(
     Object.values(cart).reduce((a, v) => +v.finalNorPrice() + a, 0)
   );
