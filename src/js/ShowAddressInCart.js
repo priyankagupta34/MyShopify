@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 export default function ShowAddressInCart({
   setView,
   selectAddress,
@@ -5,7 +7,7 @@ export default function ShowAddressInCart({
   address,
   setAction
 }) {
-  setAction("Billing/Shipping Address");
+  useEffect(() => setAction("Billing/Shipping Address"), []);
   return (
     <>
       <div className="cartDisplay">

@@ -1,16 +1,33 @@
+import { useState } from "react";
 import ProductActions from "./ProductActions";
 
 export default function ProductDisplay({ product, changeproductQuantity }) {
+  const [imgIdx, setImgIndex] = useState(0);
+
   return (
     <div>
       <div className="ImagesSlider">
-        <div className="arrowLeft">{"<"}</div>
+        <button
+          className=" arrow addToCart "
+          disabled={imgIdx === 0}
+          style={{ height: 40, width: 40, borderRadius: "50%" }}
+          onClick={() => setImgIndex(imgIdx - 1)}
+        >
+          {"<"}
+        </button>
         <img
-          className="ImagesSliderImage"
-          src={product?.images[0]}
+          className="ImagesSliderImage "
+          src={product?.images[imgIdx]}
           alt="product images"
         />
-        <div className="arrowRight">{">"}</div>
+        <button
+          className="arrow addToCart"
+          disabled={imgIdx === product.images.length - 1}
+          style={{ height: 40, width: 40, borderRadius: "50%" }}
+          onClick={() => imgIdx < setImgIndex(imgIdx + 1)}
+        >
+          {">"}
+        </button>
       </div>
 
       <div className="prodPriceInDisplay">

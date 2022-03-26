@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Utilities } from "./../Utilities";
 
 export default function ShowFinalPriceInCart({
@@ -11,7 +11,7 @@ export default function ShowFinalPriceInCart({
   selectCard,
   address
 }) {
-  setAction("Final Cart Price");
+  useEffect(() => setAction("Final Cart Pricet"), []);
   const totalCart = Utilities.roundOff(
     Object.values(cart).reduce((a, v) => +v.finalNorPrice() + a, 0)
   );

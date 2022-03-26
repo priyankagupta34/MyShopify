@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import PriceChanger from "./PriceChanger";
 
 export default function ShowProductsInCart({
@@ -8,7 +8,8 @@ export default function ShowProductsInCart({
   setView,
   setAction
 }) {
-  setAction("Products In Cart");
+  useCallback(() => setAction("Products In Cart"), []);
+
   return (
     <>
       <div className="cartDisplay">

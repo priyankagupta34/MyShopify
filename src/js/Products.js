@@ -1,11 +1,9 @@
-import { useState } from "react";
 import ProductActions from "./ProductActions";
 
 export default function Products({
   products,
   changeproductQuantity,
-  displayProductHandler,
-  openProduct
+  displayProductHandler
 }) {
   return (
     <div>
