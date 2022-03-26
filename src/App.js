@@ -70,13 +70,10 @@ export default function App() {
       setLoader(false);
       setCartOpen(false);
       setNotificationMessage(true);
+      for (let i in cart) {
+        cart[i].quantity = 0;
+      }
       addCart({});
-      setProds(
-        products.map((a) => {
-          a["quantity"] = 0;
-          return a;
-        })
-      );
     }, 3000);
   }
 
