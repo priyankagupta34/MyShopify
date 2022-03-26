@@ -1,2 +1,2 @@
-# MyShopify
+# PriyankaShopify
 Created with CodeSandbox
