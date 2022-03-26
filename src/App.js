@@ -107,7 +107,18 @@ export default function App() {
       {openCart && (
         <div id="cart">
           <div className="cartService">
-            <div>{currentAction}</div>
+            <div>
+              <span
+                style={{ fontSize: "2em" }}
+                role="img"
+                aria-label=""
+                className="cartBtn"
+              >
+                &#128722;
+              </span>
+              &nbsp; &nbsp;
+              {currentAction}
+            </div>
             <div onClick={() => setCartOpen(false)}>&times;</div>
           </div>
 
