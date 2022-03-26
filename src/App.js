@@ -4,6 +4,7 @@ import { ProductServices } from "./service";
 import Products from "./js/Products";
 import Cart from "./js/Cart";
 import ProductDisplay from "./js/ProductDisplay";
+import Done from "./js/Done";
 
 export default function App() {
   const [products, setProds] = useState([]);
@@ -14,7 +15,10 @@ export default function App() {
   const [currentAction, setAction] = useState("Products in Cart");
   const [cart, addCart] = useState({});
   const [product, selectProduct] = useState({});
-  const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(false);
+  const [showNotificationMessage, setNotificationMessage] = useState(false);
+  // const [messageContent, setMsgContent] = useState("");
+
   const [productCount, SetCartCount] = useState(0);
 
   // fetching product list
@@ -59,6 +63,17 @@ export default function App() {
     [cart]
   );
 
+  function placeOrder(cart, address, cardSelected, amountToPay) {
+    setLoader(true);
+    console.log("final", cart, address, cardSelected, amountToPay);
+    setTimeout(() => {
+      setLoader(false);
+      setCartOpen(false);
+      setNotificationMessage(true);
+      addCart({});
+    }, 3000);
+  }
+
   // Opening Modal For selected product
   function displayProductHandler(product) {
     setProductOpen(true);
@@ -67,6 +82,14 @@ export default function App() {
 
   return (
     <div className="app">
+      {showNotificationMessage ? (
+        <div id="loader">
+          <Done setNotificationMessage={setNotificationMessage} />
+        </div>
+      ) : (
+        <></>
+      )}
+
       {loader ? (
         <div id="loader">
           <div className="outerLoader"></div>
@@ -90,6 +113,7 @@ export default function App() {
             changeproductQuantity={changeproductQuantity}
             productCount={productCount}
             cards={cards}
+            placeOrder={placeOrder}
           />
         </div>
       )}
@@ -153,6 +177,9 @@ export default function App() {
           </div>
         </div>
       </div>
+      <span className="copywrite" role="img" aria-label="emoji">
+        ❤️ All Rights Reserved with Priyanka!! ❤️
+      </span>
     </div>
   );
 }

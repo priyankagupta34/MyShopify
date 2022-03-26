@@ -10,7 +10,8 @@ export default function Cart({
   changeproductQuantity,
   productCount,
   setAction,
-  cards
+  cards,
+  placeOrder
 }) {
   const [
     cartProductsAddressPriceToDisplay,
@@ -22,6 +23,7 @@ export default function Cart({
   });
 
   const [address, selectAddress] = useState(null);
+  const [cardSelected, selectCard] = useState(null);
 
   if (productCount === 0) {
     return (
@@ -74,6 +76,10 @@ export default function Cart({
           setView={setView}
           setAction={setAction}
           cards={cards}
+          selectCard={selectCard}
+          cardSelected={cardSelected}
+          address={address}
+          placeOrder={placeOrder}
         />
       ) : (
         <></>

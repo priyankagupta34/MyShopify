@@ -35,7 +35,8 @@ body {
 
 .shopContainer {
   padding: 2vh;
-  height: 90vh;
+
+  height: 88.5vh;
   width: 100vw;
   min-width: 400px;
   overflow: hidden;
@@ -465,33 +466,47 @@ body {
 }
 
 .outerLoader {
-  height: 60px;
-  width: 60px;
+  height: 100px;
+  width: 100px;
   background-color: transparent;
-  border-radius: 50%;
   border: 10px solid white;
-
+  border-radius: 50%;
   animation: loader 4s infinite linear;
+  border-bottom: 10px solid black;
 }
 
 @keyframes loader {
   0% {
     transform: rotate(0deg);
-    border: 10px solid rgb(230, 152, 230);
-    border-bottom: 10px solid rgb(168, 18, 18);
   }
 
   50% {
     transform: rotate(180deg);
-    border: 10px solid rgb(235, 171, 171);
-    border-bottom: 10px solid blue;
   }
 
   100% {
     transform: rotate(360deg);
-    border: 10px solid rgb(174, 174, 228);
-    border-bottom: 10px solid rgb(170, 11, 170);
   }
+}
+
+.done {
+  background-color: white;
+  padding: 50px;
+  text-align: center;
+  color: gray;
+  line-height: 40px;
+  box-shadow: 1px 1px 3px 0 white;
+  border-radius: 5px;
+}
+
+.copywrite {
+  text-align: center;
+  display: block;
+  color: white;
+  font-weight: 100;
+  background-color: black;
+  bottom: 0;
+  font-size: 0.8em;
 }
 
 @media only screen and (min-width: 500px) and (max-width: 1000px) {

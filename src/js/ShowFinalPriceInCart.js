@@ -5,7 +5,11 @@ export default function ShowFinalPriceInCart({
   cart,
   cards,
   setView,
-  setAction
+  setAction,
+  placeOrder,
+  cardSelected,
+  selectCard,
+  address
 }) {
   setAction("Final Cart Price");
   const totalCart = Utilities.roundOff(
@@ -44,7 +48,13 @@ export default function ShowFinalPriceInCart({
           {cards.map((card) => (
             <React.Fragment key={card.id}>
               <div className="card">
-                <input type="radio" id={card.id} name="address" />
+                <input
+                  checked={cardSelected?.id === card.id}
+                  type="radio"
+                  id={card.id}
+                  name="address"
+                  onChange={(e) => selectCard(card)}
+                />
               </div>
 
               <label htmlFor={card.id} className="card">
@@ -84,7 +94,8 @@ export default function ShowFinalPriceInCart({
 
           <button
             className="addToCart"
-            onClick={() => setView(false, false, true)}
+            disabled={cardSelected === null}
+            onClick={() => placeOrder(cart, address, cardSelected, amountToPay)}
           >
             Pay Now
           </button>
