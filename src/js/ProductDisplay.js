@@ -28,6 +28,10 @@ export default function ProductDisplay({ product, changeproductQuantity }) {
         </span>
       </div>
 
+      <div className="prodPriceInDisplay">
+        {product?.brand} {product?.category}
+      </div>
+
       <div className="prodDescription">{product?.description}</div>
 
       {/* All Action Buttons */}

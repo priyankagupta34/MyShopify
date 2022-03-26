@@ -173,7 +173,7 @@ body {
   padding: 24px 18px;
   font-size: 1.4em;
   align-items: center;
-  height: 80px;
+  height: 113px;
 }
 
 @keyframes cartMove {
@@ -250,7 +250,7 @@ body {
 
 .ImagesSlider {
   display: flex;
-  height: 50vh;
+  height: 45vh;
   justify-content: center;
   margin-top: 30px;
 }
