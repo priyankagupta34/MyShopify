@@ -14,6 +14,7 @@ export default function App() {
   const [currentAction, setAction] = useState("Products in Cart");
   const [cart, addCart] = useState({});
   const [product, selectProduct] = useState({});
+  const [loader, setLoader] = useState(true);
   const [productCount, SetCartCount] = useState(0);
 
   // fetching product list
@@ -66,6 +67,14 @@ export default function App() {
 
   return (
     <div className="app">
+      {loader ? (
+        <div id="loader">
+          <div className="outerLoader"></div>
+        </div>
+      ) : (
+        <></>
+      )}
+
       {openCart && (
         <div id="cart">
           <div className="cartService">

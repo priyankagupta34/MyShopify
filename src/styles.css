@@ -436,8 +436,64 @@ body {
 
 .paynow {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 0.2fr 1fr 2fr;
+  font-size: 0.9em;
+  color: gray;
+
+  margin: 5vh;
+  border-top: 1px solid rgb(226, 226, 226);
+  border-left: 1px solid rgb(226, 226, 226);
+  border-right: 1px solid rgb(226, 226, 226);
 }
+
+.card {
+  padding: 10px 10px;
+  border-bottom: 1px solid rgb(226, 226, 226);
+  /* border-right: 1px solid rgb(226, 226, 226); */
+  line-height: 30px;
+}
+
+#loader {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #000000b6;
+  z-index: 9999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outerLoader {
+  height: 60px;
+  width: 60px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 10px solid white;
+
+  animation: loader 4s infinite linear;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+    border: 10px solid rgb(230, 152, 230);
+    border-bottom: 10px solid rgb(168, 18, 18);
+  }
+
+  50% {
+    transform: rotate(180deg);
+    border: 10px solid rgb(235, 171, 171);
+    border-bottom: 10px solid blue;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    border: 10px solid rgb(174, 174, 228);
+    border-bottom: 10px solid rgb(170, 11, 170);
+  }
+}
+
 @media only screen and (min-width: 500px) and (max-width: 1000px) {
   .showProds {
     grid-template-columns: 1fr 1fr 1fr;

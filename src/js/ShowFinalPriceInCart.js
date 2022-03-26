@@ -43,9 +43,32 @@ export default function ShowFinalPriceInCart({
         <div className="paynow">
           {cards.map((card) => (
             <React.Fragment key={card.id}>
-              <div>{card.name}</div>
-              <div>{card.type}</div>
-              <div>{card.card}</div>
+              <div className="card">
+                <input type="radio" id={card.id} name="address" />
+              </div>
+
+              <label htmlFor={card.id} className="card">
+                <div style={{ color: "black", fontWeight: 600 }}>
+                  {card.name}
+                </div>
+              </label>
+              <label htmlFor={card.id} className="card">
+                <div>
+                  <div
+                    style={{
+                      color: `${
+                        card.type === "Credit" ? "cornflowerblue" : "#2c982c"
+                      }`,
+                      fontWeight: 600
+                    }}
+                  >
+                    {card.type}
+                  </div>
+                  <div>
+                    {card.card} &nbsp;**** &nbsp;{card.card}{" "}
+                  </div>
+                </div>
+              </label>
             </React.Fragment>
           ))}
         </div>
