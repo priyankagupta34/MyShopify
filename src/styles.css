@@ -550,4 +550,32 @@ body {
       left: 20%;
     }
   }
+
+  .cartDisplay,
+  .gridForPrice,
+  .paynow {
+    margin: 5px;
+    padding: 3px;
+    font-size: 0.9em;
+  }
+
+  .paynow {
+    grid-template-columns: 0.1fr 1fr 2fr;
+  }
+
+  .cartProdDisplay {
+    margin: 5px 0;
+    grid-template-columns: 0fr 1fr 1fr 1fr;
+  }
+
+  .adGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .done {
+    width: 80vw;
+    padding: 20px;
+    line-height: 30px;
+    font-size: 0.9em;
+  }
 }
