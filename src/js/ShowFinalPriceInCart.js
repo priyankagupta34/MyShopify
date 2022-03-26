@@ -58,7 +58,7 @@ export default function ShowFinalPriceInCart({
               </div>
 
               <label htmlFor={card.id} className="card">
-                <div style={{ color: "black", fontWeight: 600 }}>
+                <div style={{ color: "black", fontWeight: 400 }}>
                   {card.name}
                 </div>
               </label>
@@ -72,9 +72,17 @@ export default function ShowFinalPriceInCart({
                       fontWeight: 600
                     }}
                   >
+                    <span role="img" aria-label="card">
+                      &#128179;
+                    </span>{" "}
+                    &nbsp;
                     {card.type}
                   </div>
-                  <div>
+                  <div
+                    style={{
+                      fontWeight: 100
+                    }}
+                  >
                     {card.card} &nbsp;**** &nbsp;{card.card}{" "}
                   </div>
                 </div>
