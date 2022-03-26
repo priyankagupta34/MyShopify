@@ -67,46 +67,6 @@ export default function Products({
               className="addCartActnsButtons"
               item={item}
             />
-            {/* <div id="addToCart" className="addCartActnsButtons">
-              <button
-                className="addToCart"
-                disabled={item.quantity !== 0}
-                onClick={() => {
-                  item.quantity++;
-                  changeproductQuantity(item.id, item);
-                }}
-              >
-                Add to Cart{" "}
-                <span role="img" aria-label="" className="cartBtn">
-                  &#128722;
-                </span>
-              </button>
-              {item.quantity !== 0 ? (
-                <div>
-                  <span
-                    className="minus"
-                    onClick={() => {
-                      item.quantity > 0 && item.quantity--;
-                      changeproductQuantity(item.id, item);
-                    }}
-                  >
-                    -
-                  </span>
-                  <span className="value">{item.quantity}</span>
-                  <span
-                    className="plus"
-                    onClick={() => {
-                      item.quantity++;
-                      changeproductQuantity(item.id, item);
-                    }}
-                  >
-                    +
-                  </span>
-                </div>
-              ) : (
-                <></>
-              )}
-            </div> */}
           </div>
         ))}
       </div>

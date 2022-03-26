@@ -71,6 +71,12 @@ export default function App() {
       setCartOpen(false);
       setNotificationMessage(true);
       addCart({});
+      setProds(
+        products.map((a) => {
+          a["quantity"] = 0;
+          return a;
+        })
+      );
     }, 3000);
   }
 
@@ -177,9 +183,9 @@ export default function App() {
           </div>
         </div>
       </div>
-      <span className="copywrite" role="img" aria-label="emoji">
+      {/* <span className="copywrite" role="img" aria-label="emoji">
         ❤️ All Rights Reserved with Priyanka!! ❤️
-      </span>
+      </span> */}
     </div>
   );
 }
