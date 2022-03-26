@@ -45,13 +45,15 @@ export default function Products({
             </div>
 
             <div className="prodPrice">
-              Rs. {item.price} &nbsp;
+              Rs.{" "}
+              {(
+                item.price -
+                item.price * (item.discountPercentage / 100)
+              ).toFixed(2)}{" "}
+              &nbsp;
               <strike className="strikeprice">
                 Rs.
-                {(
-                  item.price +
-                  item.price * (item.discountPercentage / 100)
-                ).toFixed(2)}
+                {item.price}
               </strike>{" "}
               &nbsp;
               <span className="discountDisplay">

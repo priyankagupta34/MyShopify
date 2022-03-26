@@ -4,7 +4,8 @@ const url = "https://dummyjson.com/products";
 
 export const ProductServices = {
   fetchAllProducts,
-  fetchAllAddress
+  fetchAllAddress,
+  fetchAllCards
 };
 
 async function fetchAllProducts() {
@@ -15,4 +16,9 @@ async function fetchAllProducts() {
 async function fetchAllAddress() {
   const address = await Axios.get("/jsons/address.json");
   return address;
+}
+
+async function fetchAllCards() {
+  const cards = await Axios.get("/jsons/cards.json");
+  return cards;
 }

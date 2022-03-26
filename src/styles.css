@@ -330,7 +330,7 @@ body {
 
 .cartProdDisplay {
   display: grid;
-  grid-template-columns: 1fr 2fr 0.5fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
   /* grid-gap: 5px; */
   margin: 20px;
   align-items: center;
@@ -395,6 +395,49 @@ body {
   border-radius: 3px;
 }
 
+.continue {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 100;
+  font-size: 2em;
+  color: gray;
+  box-shadow: 0 0 2px 0 grey;
+  margin: 32px;
+}
+
+.count {
+  position: absolute;
+  top: 8px;
+  right: 20px;
+  font-size: 0.6em;
+  height: 25px;
+  width: 25px;
+  background: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-weight: 900;
+}
+.gridForPrice {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid rgb(226, 226, 226);
+  border-left: 1px solid rgb(226, 226, 226);
+  margin: 5vh;
+}
+.priceMart {
+  font-size: 0.9em;
+  color: gray;
+}
+
+.paynow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 @media only screen and (min-width: 500px) and (max-width: 1000px) {
   .showProds {
     grid-template-columns: 1fr 1fr 1fr;

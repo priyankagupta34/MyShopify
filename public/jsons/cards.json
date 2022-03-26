@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "type": "Credit",
+    "name": "Priyanka Gupta",
+    "card": "SDAA52...***62"
+  },
+  { "id": 2, "type": "Debit", "name": "Rita Kumari", "card": "IUAA52...***81" },
+  { "id": 3, "type": "Debit", "name": "Jane Doe1", "card": "BDGA52...***98" },
+  { "id": 4, "type": "Credit", "name": "Jane Doe2", "card": "BSAA52...***00" }
+]

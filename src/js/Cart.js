@@ -1,8 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ShowAddressInCart from "./ShowAddressInCart";
+import ShowFinalPriceInCart from "./ShowFinalPriceInCart";
 import ShowProductsInCart from "./ShowProductsInCart";
 
-export default function Cart({ cart, setCartOpen, addresses }) {
+export default function Cart({
+  cart,
+  setCartOpen,
+  addresses,
+  changeproductQuantity,
+  productCount,
+  setAction,
+  cards
+}) {
   const [
     cartProductsAddressPriceToDisplay,
     setcartProductsAddressPriceToDisplay
@@ -14,6 +23,17 @@ export default function Cart({ cart, setCartOpen, addresses }) {
 
   const [address, selectAddress] = useState(null);
 
+  if (productCount === 0) {
+    return (
+      <div className="continue">
+        Happy Shopping!!!
+        <span aria-label="smile" role="img">
+          😊
+        </span>
+      </div>
+    );
+  }
+
   function setView(productDisplay, addressDisplay, priceDisplay) {
     setcartProductsAddressPriceToDisplay({
       productDisplay,
@@ -22,10 +42,6 @@ export default function Cart({ cart, setCartOpen, addresses }) {
     });
   }
 
-  // useEffect(()=>{
-
-  // })
-  console.log("addres", address);
   return (
     <div>
       {cartProductsAddressPriceToDisplay.productDisplay ? (
@@ -33,6 +49,8 @@ export default function Cart({ cart, setCartOpen, addresses }) {
           cart={cart}
           setView={setView}
           setCartOpen={setCartOpen}
+          changeproductQuantity={changeproductQuantity}
+          setAction={setAction}
         />
       ) : (
         <></>
@@ -44,6 +62,18 @@ export default function Cart({ cart, setCartOpen, addresses }) {
           setView={setView}
           address={address}
           selectAddress={selectAddress}
+          setAction={setAction}
+        />
+      ) : (
+        <></>
+      )}
+
+      {cartProductsAddressPriceToDisplay.priceDisplay ? (
+        <ShowFinalPriceInCart
+          cart={cart}
+          setView={setView}
+          setAction={setAction}
+          cards={cards}
         />
       ) : (
         <></>

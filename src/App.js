@@ -8,11 +8,13 @@ import ProductDisplay from "./js/ProductDisplay";
 export default function App() {
   const [products, setProds] = useState([]);
   const [addresses, setAddresses] = useState([]);
+  const [cards, setCards] = useState([]);
   const [openCart, setCartOpen] = useState(false);
   const [openProduct, setProductOpen] = useState(false);
   const [currentAction, setAction] = useState("Products in Cart");
   const [cart, addCart] = useState({});
   const [product, selectProduct] = useState({});
+  const [productCount, SetCartCount] = useState(0);
 
   // fetching product list
   useEffect(() => {
@@ -21,12 +23,24 @@ export default function App() {
       setProds(
         pd.data.products.map((a) => {
           a["quantity"] = 0;
+          a["finalDisPrice"] = function () {
+            return (
+              (a["price"] - (a["price"] * a["discountPercentage"]) / 100) *
+              a["quantity"]
+            ).toFixed(2);
+          };
+          a["finalNorPrice"] = function () {
+            return (a["price"] * a["quantity"]).toFixed(2);
+          };
           return a;
         })
       );
 
       const ad = await ProductServices.fetchAllAddress();
       setAddresses(ad.data);
+
+      const cd = await ProductServices.fetchAllCards();
+      setCards(cd.data);
     })();
   }, []);
 
@@ -38,12 +52,18 @@ export default function App() {
     } else addCart({ ...cart, [id]: item });
   }
 
+  // Keep a cart counter to show at cart
+  useEffect(
+    () => SetCartCount(Object.values(cart).reduce((a, v) => a + v.quantity, 0)),
+    [cart]
+  );
+
   // Opening Modal For selected product
   function displayProductHandler(product) {
     setProductOpen(true);
     selectProduct(product);
   }
-  console.log(addresses);
+
   return (
     <div className="app">
       {openCart && (
@@ -52,11 +72,15 @@ export default function App() {
             <div>{currentAction}</div>
             <div onClick={() => setCartOpen(false)}>&times;</div>
           </div>
+
           <Cart
             cart={cart}
             setAction={setAction}
             setCartOpen={setCartOpen}
             addresses={addresses}
+            changeproductQuantity={changeproductQuantity}
+            productCount={productCount}
+            cards={cards}
           />
         </div>
       )}
@@ -104,6 +128,7 @@ export default function App() {
             className="cart"
             onClick={() => setCartOpen(true)}
           />
+          <div className="count">{productCount}</div>
         </span>
       </div>
 

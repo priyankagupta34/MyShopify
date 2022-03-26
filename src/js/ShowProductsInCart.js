@@ -1,6 +1,14 @@
 import React from "react";
+import PriceChanger from "./PriceChanger";
 
-export default function ShowProductsInCart({ cart, setCartOpen, setView }) {
+export default function ShowProductsInCart({
+  cart,
+  changeproductQuantity,
+  setCartOpen,
+  setView,
+  setAction
+}) {
+  setAction("Products In Cart");
   return (
     <>
       <div className="cartDisplay">
@@ -18,10 +26,25 @@ export default function ShowProductsInCart({ cart, setCartOpen, setView }) {
                 <small>{product.title}</small>
               </div>
               <div className="grid quantityIncart">
-                <small>{product.quantity}</small>
+                {/* <small>{product.quantity}</small> */}
+                <PriceChanger
+                  item={product}
+                  changeproductQuantity={changeproductQuantity}
+                />
               </div>
               <div className="grid priceIncart">
-                <small>{product.price}</small>
+                <div>
+                  <small>Rs. {product.finalDisPrice()}</small>
+                  <br />
+                  <strike
+                    style={{
+                      fontSize: "0.7em",
+                      color: "firebrick"
+                    }}
+                  >
+                    (Rs. {product.finalNorPrice()}
+                  </strike>
+                </div>
               </div>
             </React.Fragment>
           ))}

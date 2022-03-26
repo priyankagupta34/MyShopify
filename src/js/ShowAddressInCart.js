@@ -2,8 +2,10 @@ export default function ShowAddressInCart({
   setView,
   selectAddress,
   addresses,
-  address
+  address,
+  setAction
 }) {
+  setAction("Billing/Shipping Address");
   return (
     <>
       <div className="cartDisplay">
@@ -16,8 +18,7 @@ export default function ShowAddressInCart({
                 type="radio"
                 id={ad.id}
                 name="address"
-                value={address}
-                onChange={(e) => selectAddress(e.target.value)}
+                onChange={(e) => selectAddress(ad)}
               />
               <label htmlFor={ad.id}>
                 <div className="adName">{ad.name}</div>
@@ -41,7 +42,7 @@ export default function ShowAddressInCart({
           <button
             className="addToCart"
             disabled={!address}
-            onClick={() => setView(false, true, false)}
+            onClick={() => setView(false, false, true)}
           >
             Proceed to Checkout
           </button>
