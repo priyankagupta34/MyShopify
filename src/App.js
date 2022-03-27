@@ -24,7 +24,9 @@ export default function App() {
   // fetching product list
   useEffect(() => {
     (async () => {
+      setLoader(true);
       const pd = await ProductServices.fetchAllProducts();
+
       setProds(
         pd.data.products.map((a) => {
           a["quantity"] = 0;
@@ -40,7 +42,7 @@ export default function App() {
           return a;
         })
       );
-
+      setLoader(false);
       const ad = await ProductServices.fetchAllAddress();
       setAddresses(ad.data);
 
