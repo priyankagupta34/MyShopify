@@ -175,6 +175,11 @@ body {
   align-items: center;
   height: 113px;
 }
+.times {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
 
 @keyframes cartMove {
   0% {

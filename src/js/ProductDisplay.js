@@ -29,7 +29,6 @@ export default function ProductDisplay({ product, changeproductQuantity }) {
           {">"}
         </button>
       </div>
-
       <div className="prodPriceInDisplay">
         Rs. {product.price} &nbsp;
         <strike className="strikeprice">

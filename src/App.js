@@ -118,7 +118,9 @@ export default function App() {
               &nbsp; &nbsp;
               {currentAction}
             </div>
-            <div onClick={() => setCartOpen(false)}>&times;</div>
+            <div className="times" onClick={() => setCartOpen(false)}>
+              &times;
+            </div>
           </div>
 
           <Cart
