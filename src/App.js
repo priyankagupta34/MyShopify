@@ -160,7 +160,9 @@ export default function App() {
                 </span>
               </div>
             </div>
-            <div onClick={() => setProductOpen(false)}>&times;</div>
+            <div className="times" onClick={() => setProductOpen(false)}>
+              &times;
+            </div>
           </div>
 
           <ProductDisplay
