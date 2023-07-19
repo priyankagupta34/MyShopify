@@ -44,6 +44,7 @@ export default function App() {
       );
       setLoader(false);
       const ad = await ProductServices.fetchAllAddress();
+      console.log('ad',ad);
       setAddresses(ad.data);
 
       const cd = await ProductServices.fetchAllCards();
